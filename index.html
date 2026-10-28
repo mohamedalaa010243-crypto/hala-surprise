@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f7f4f2">
+<title>حلا</title>
+<style>
+:root{--ink:#262321;--muted:#77716d;--line:#e8e2de;--paper:#fffdfb;--accent:#9b6b79}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;padding:24px;display:grid;place-items:center;background:#f7f4f2;color:var(--ink);font-family:Arial,Tahoma,sans-serif}
+.panel{width:min(100%,410px);background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:30px 24px;text-align:center;box-shadow:0 18px 50px rgba(40,30,25,.06)}
+.mark{font-size:24px;color:var(--accent);margin-bottom:18px}
+.eyebrow{font-size:11px;letter-spacing:2px;color:var(--muted);margin:0 0 12px}
+h1{font-size:28px;font-weight:600;letter-spacing:.2px;margin:0 0 12px}
+p{line-height:1.9;font-size:15px;color:#625c58;margin:8px 0 18px}
+input{width:100%;padding:14px;border:1px solid #dcd3ce;border-radius:12px;font-size:17px;text-align:center;background:white;outline:none}
+input:focus{border-color:var(--accent);box-shadow:0 0 0 3px #9b6b791a}
+button{width:100%;padding:14px;margin-top:12px;border:0;border-radius:12px;background:#302b29;color:white;font-size:15px;font-weight:600;cursor:pointer}
+button:hover{background:#514744}
+#error{min-height:22px;font-size:13px;color:#a33b50;margin:10px 0 0}
+#secret{display:none}
+.photo{display:block;width:100%;max-height:440px;object-fit:cover;border-radius:15px;margin:22px auto 18px;border:1px solid var(--line)}
+.note{border-top:1px solid var(--line);padding-top:16px;margin-top:18px!important}
+.footer{font-size:10px;letter-spacing:1.6px;color:#938984;margin-top:24px}
+</style>
+</head>
+<body>
+<main class="panel" id="gate">
+  <div class="mark">H.</div>
+  <p class="eyebrow">A SMALL SURPRISE</p>
+  <h1>حلا</h1>
+  <p>اكتبي كلمة السر</p>
+  <form id="login">
+    <input id="password" type="password" placeholder="كلمة السر" autocomplete="off" aria-label="كلمة السر">
+    <button type="submit">متابعة</button>
+  </form>
+  <p id="error" role="status"></p>
+  <div class="footer">MADE BY MOHAMEDALAA</div>
+</main>
+<main class="panel" id="secret">
+  <p class="eyebrow">JUST A LITTLE NOTE</p>
+  <h1>حلا</h1>
+  <img class="photo" src="hala.jpg" alt="الصورة">
+  <p>حبيت أعملك حاجة بسيطة ومختلفة.<br>أتمنى يومك يكون جميل.</p>
+  <p class="note">أتمنى تكون المفاجأة عجبتك.</p>
+  <div class="footer">MADE BY MOHAMEDALAA</div>
+</main>
+<script>
+document.getElementById('login').addEventListener('submit',function(e){
+ e.preventDefault();
+ if(document.getElementById('password').value.trim()==='حلا'){
+  document.getElementById('gate').style.display='none';
+  document.getElementById('secret').style.display='block';
+ }else{
+  document.getElementById('error').textContent='كلمة السر غير صحيحة. حاولي مرة أخرى.';
+ }
+});
+</script>
+</body>
+</html>
